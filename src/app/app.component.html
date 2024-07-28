@@ -1,0 +1,39 @@
+<div class="container">
+  <div >APY Calculator</div>
+  <div>Hope this will help you calculate the peanuts you will get from whatever you are gonna subscribe to</div>
+  <form [formGroup]="apyForm">  
+    
+    Capital: <input type="number" formControlName='capital'><br>
+    <div *ngIf="apyForm.get('capital')!.invalid && (apyForm.get('capital')!.dirty || apyForm.get('capital')!.touched)" class="error">
+      <div *ngIf="apyForm.get('capital')!.errors?.['required']">0 x anything will always return 0</div>
+      <div *ngIf="apyForm.get('capital')!.errors?.['nonNegative']">pls dont invest if you are in debt</div>
+    </div>
+    APY: <input type="number" formControlName="apy"><br>
+    <div *ngIf="apyForm.get('apy')!.invalid && (apyForm.get('apy')!.dirty || apyForm.get('apy')!.touched)" class="error">
+      <div *ngIf="apyForm.get('apy')!.errors?.['required']">this field is required</div>
+      <div *ngIf="apyForm.get('apy')!.errors?.['nonNegative']">y u do this if its negative</div>
+    </div>
+    <br>
+    Interest Type: <br><br>
+    <input type="radio" id="simple" name="interestType" formControlName="interestType" value="simple"><label for="simple">Simple</label><br>
+    <input type="radio" id="compound-d" name="interestType" formControlName="interestType" value="compound-d"><label for="compound-d">Compounded Daily</label><br>
+    <input type="radio" id="compound-m" name="interestType" formControlName="interestType" value="compound-m"><label for="compound-m">Compounded Monthly</label><br><br>
+    Duration: 
+    <div class="inline-container">
+      <input type="number" formControlName="interestDuration" step="1">
+      <select id="interestDurationType" formControlName="interestDurationType">
+        <option value="day">Days</option>
+        <option value="month">Months</option>
+        <option value="year">Years</option>
+      </select>
+    </div>
+    <div *ngIf="apyForm.get('interestDuration')!.invalid && (apyForm.get('interestDuration')!.dirty || apyForm.get('interestDuration')!.touched)" class="error">
+      <div *ngIf="apyForm.get('interestDuration')!.errors?.['required']">duration is required </div>
+      <div *ngIf="apyForm.get('interestDuration')!.errors?.['nonNegative']">are you a time traveler? </div>
+    </div>
+    <div>
+      <button type="submit" (click)="calculate()" [disabled]="isFormInvalid()">Calculate</button>
+    </div>
+    <div *ngIf="yield" class="result">Your peanuts: $ {{ yield }}</div>
+  </form>
+</div>

@@ -1,0 +1,120 @@
+/* Apply Roboto Slab font to the entire body */
+body, input, select {
+    font-family: 'Roboto Slab', serif;
+}
+
+/* General styling for the form container */
+form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    font-family: 'Roboto Slab', serif;
+}
+
+/* Styling for form labels */
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+/* Styling for form inputs */
+form input[type="number"],
+form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Styling for labels and inputs to increase spacing */
+form label,
+form input[type="number"],
+form select {
+    margin-bottom: 20px;
+}
+
+/* Styling for radio buttons and their labels */
+form input[type="radio"] {
+    margin-right: 5px;
+}
+
+form label[for="simple"],
+form label[for="compound-d"],
+form label[for="compound-m"] {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+/* Styling for error messages */
+.error {
+    color: #ff0000;
+    font-size: 0.9em;
+    margin-top: -10px;
+    margin-bottom: 15px;
+}
+
+/* Styling for the submit button */
+button {
+    font-family: 'Roboto Slab', serif;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #38b6cc;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+button:hover:not([disabled]) {
+    background-color: #38b6cc;
+}
+
+/* Styling for the form title and description */
+.container > div:first-child {
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.container > div:nth-child(2) {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 1.2em;
+    font-style: italic;
+    font-family: 'Roboto Slab', serif;
+}
+
+/* Inline styling for the Duration inputs */
+.inline-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.inline-container input[type="number"],
+.inline-container select {
+    width: auto;
+    flex-grow: 1;
+}
+
+/* Result display styling */
+.result {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #162a41;
+    font-weight: bold;
+}
